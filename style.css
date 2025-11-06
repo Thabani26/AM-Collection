@@ -1,0 +1,105 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #fff;
+  color: #000;
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 2px solid #f5a8c6;
+}
+
+.logo {
+  width: 120px;
+}
+
+.tagline {
+  color: #f28ab2;
+  font-style: italic;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 1rem;
+  color: #000;
+}
+
+.category {
+  margin: 2rem auto;
+  width: 90%;
+  border: 1px solid #f3c7d6;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.product-images {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.product-images img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+.price-table th,
+.price-table td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center;
+}
+
+.add-to-cart {
+  display: block;
+  margin: 0 auto;
+  background: #f28ab2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background: #e4719a;
+}
+
+#cart-section {
+  background: #fdf3f7;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+#checkout {
+  margin-top: 1rem;
+}
+
+#whatsapp-order {
+  background: #25d366;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+footer {
+  background: #f5a8c6;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 2rem;
+}
