@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -5,28 +6,29 @@ body {
   color: #000;
 }
 
+/* Header / Hero */
 header {
   text-align: center;
   padding: 1rem;
   background: #fff;
   border-bottom: 2px solid #f5a8c6;
 }
-
 .logo {
   width: 120px;
 }
-
 .tagline {
   color: #f28ab2;
   font-style: italic;
 }
 
+/* Section Titles */
 h2 {
   text-align: center;
   margin-top: 1rem;
   color: #000;
 }
 
+/* Product Category */
 .category {
   margin: 2rem auto;
   width: 90%;
@@ -34,37 +36,51 @@ h2 {
   border-radius: 8px;
   padding: 1rem;
 }
-
+.category h3 {
+  text-align: center;
+}
 .product-images {
   display: flex;
   gap: 10px;
   justify-content: center;
+  margin: 10px 0;
 }
-
 .product-images img {
   width: 120px;
   height: 120px;
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid #eee;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.product-images img:hover {
+  transform: scale(1.05);
 }
 
+/* Price Table & Select */
 .price-table {
   width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
 }
-
-.price-table th,
-.price-table td {
+.price-table th, .price-table td {
   border: 1px solid #ddd;
   padding: 6px;
   text-align: center;
 }
+.length-select {
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
 
+/* Add to Cart Button */
 .add-to-cart {
   display: block;
-  margin: 0 auto;
+  margin: 0.5rem auto;
   background: #f28ab2;
   color: white;
   border: none;
@@ -72,21 +88,19 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
 }
-
 .add-to-cart:hover {
   background: #e4719a;
 }
 
+/* Cart Section */
 #cart-section {
   background: #fdf3f7;
   padding: 1rem;
   margin-top: 2rem;
 }
-
 #checkout {
   margin-top: 1rem;
 }
-
 #whatsapp-order {
   background: #25d366;
   color: white;
@@ -96,10 +110,106 @@ h2 {
   cursor: pointer;
 }
 
+/* Footer */
 footer {
   background: #f5a8c6;
   color: white;
   text-align: center;
   padding: 10px;
   margin-top: 2rem;
+}
+
+/* Contact Form */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 500px;
+  margin: 1rem auto;
+  gap: 10px;
+}
+#contact-form input, #contact-form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+#contact-form button {
+  background: #f28ab2;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#contact-form button:hover {
+  background: #e4719a;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  padding-top: 60px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.8); 
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+.modal-content:hover {
+  transform: scale(1.5);
+  cursor: zoom-out;
+}
+#caption {
+  text-align: center;
+  color: #fff;
+  padding: 10px 0;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #bbb;
+}
+
+/* Modal Arrows */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  user-select: none;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.6);
 }
