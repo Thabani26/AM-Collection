@@ -1,0 +1,31 @@
+const cart = [];
+const totalEl = document.getElementById("total");
+const cartEl = document.getElementById("cart");
+
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.addEventListener("click", () => {
+    const name = button.getAttribute("data-name");
+    cart.push({ name });
+    updateCart();
+  });
+});
+
+function updateCart() {
+  cartEl.innerHTML = "";
+  cart.forEach((item, i) => {
+    const li = document.createElement("li");
+    li.textContent = item.name;
+    cartEl.appendChild(li);
+  });
+  totalEl.textContent = (cart.length * 550).toFixed(2); // base price example
+}
+
+document.getElementById("whatsapp-order").addEventListener("click", () => {
+  const delivery = document.getElementById("delivery").value;
+  const deliveryCost = delivery === "paxi" ? 60 : 110;
+  const total = (cart.length * 550) + deliveryCost;
+
+  const message = `Hello, I'd like to place an order:\n\nItems:\n${cart.map(c => "• " + c.name).join("\n")}\n\nDelivery: ${delivery.toUpperCase()} (R${deliveryCost})\nTotal: R${total}\nDelivery Address: 375 Durban Joe Slovo Street`;
+  const url = `https://wa.me/27834939704?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+});
