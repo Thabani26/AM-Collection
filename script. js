@@ -1,31 +1,137 @@
+// ===== Cart Functionality =====
 const cart = [];
-const totalEl = document.getElementById("total");
 const cartEl = document.getElementById("cart");
+const totalEl = document.getElementById("total");
 
+// Add to Cart
 document.querySelectorAll(".add-to-cart").forEach(button => {
   button.addEventListener("click", () => {
-    const name = button.getAttribute("data-name");
-    cart.push({ name });
+    const category = button.getAttribute("data-name");
+    const select = button.parentElement.querySelector(".length-select");
+    const price = parseFloat(select.value);
+    const lengthText = select.options[select.selectedIndex].text.split(" - ")[0];
+    cart.push({ name: category, length: lengthText, price });
     updateCart();
   });
 });
 
+// Update Cart UI
 function updateCart() {
   cartEl.innerHTML = "";
+  let total = 0;
   cart.forEach((item, i) => {
     const li = document.createElement("li");
-    li.textContent = item.name;
+    li.textContent = `${item.name} - ${item.length} - R${item.price}`;
+    
+    // Remove button
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.style.marginLeft = "10px";
+    removeBtn.addEventListener("click", () => {
+      cart.splice(i, 1);
+      updateCart();
+    });
+    
+    li.appendChild(removeBtn);
     cartEl.appendChild(li);
+    total += item.price;
   });
-  totalEl.textContent = (cart.length * 550).toFixed(2); // base price example
-}
-
-document.getElementById("whatsapp-order").addEventListener("click", () => {
+  
   const delivery = document.getElementById("delivery").value;
   const deliveryCost = delivery === "paxi" ? 60 : 110;
-  const total = (cart.length * 550) + deliveryCost;
+  totalEl.textContent = (total + deliveryCost).toFixed(2);
+}
 
-  const message = `Hello, I'd like to place an order:\n\nItems:\n${cart.map(c => "• " + c.name).join("\n")}\n\nDelivery: ${delivery.toUpperCase()} (R${deliveryCost})\nTotal: R${total}\nDelivery Address: 375 Durban Joe Slovo Street`;
+// Update total when delivery changes
+document.getElementById("delivery").addEventListener("change", updateCart);
+
+// WhatsApp Order
+document.getElementById("whatsapp-order").addEventListener("click", () => {
+  if(cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+  const delivery = document.getElementById("delivery").value;
+  const deliveryCost = delivery === "paxi" ? 60 : 110;
+  const total = cart.reduce((sum, item) => sum + item.price, 0) + deliveryCost;
+
+  const message = `Hello, I'd like to place an order:\n\nItems:\n${cart.map(c => `• ${c.name} - ${c.length} - R${c.price}`).join("\n")}\n\nDelivery: ${delivery.toUpperCase()} (R${deliveryCost})\nTotal: R${total}\nDelivery Address: 375 Durban Joe Slovo Street`;
   const url = `https://wa.me/27834939704?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
+});
+
+// ===== Contact Form Submission =====
+document.getElementById("contact-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("Thank you! Your message has been sent.");
+  e.target.reset();
+});
+
+// ===== Image Modal Carousel & Zoom =====
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const captionText = document.getElementById("caption");
+const closeBtn = document.querySelector(".close");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+let currentImages = [];
+let currentIndex = 0;
+let zoomed = false;
+
+// Open modal on product image click
+document.querySelectorAll(".category").forEach(category => {
+  const images = Array.from(category.querySelectorAll(".product-images img"));
+  
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentImages = images.map(i => i.src);
+      currentIndex = index;
+      openModal(currentImages[currentIndex], img.alt);
+    });
+  });
+});
+
+// Open Modal
+function openModal(src, alt) {
+  modal.style.display = "block";
+  modalImg.src = src;
+  captionText.textContent = alt;
+  modalImg.style.transform = "scale(1)";
+  zoomed = false;
+}
+
+// Close Modal
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Close modal on outside click
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Navigate Carousel
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  modalImg.src = currentImages[currentIndex];
+});
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  modalImg.src = currentImages[currentIndex];
+});
+
+// Toggle Zoom on click
+modalImg.addEventListener("click", () => {
+  if (!zoomed) {
+    modalImg.style.transform = "scale(2)";
+    zoomed = true;
+    modalImg.style.cursor = "zoom-out";
+  } else {
+    modalImg.style.transform = "scale(1)";
+    zoomed = false;
+    modalImg.style.cursor = "zoom-in";
+  }
 });
