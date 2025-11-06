@@ -1,355 +1,151 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AM Collection — Demo Store</title>
-<style>
-  :root{
-    --bg:#0b0c0d; --card:#0f1416; --muted:#9aa4ad; --accent:#d4af37; --white:#fff;
-    --radius:12px; --max-width:980px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;font-family:Inter,system-ui,Roboto,Arial;background:linear-gradient(180deg,#050607,#0b0c0d);
-    color:var(--white);display:flex;justify-content:center;padding:18px;
-  }
-  .app{width:100%;max-width:var(--max-width)}
-  header{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02);margin-bottom:14px}
-  .logo{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,#0e0e0e,#1b1b1b);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .logo svg{width:56px;height:56px}
-  .brand h1{margin:0;font-size:18px}
-  .brand p{margin:6px 0 0;color:var(--muted);font-size:13px}
-  .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--white);font-weight:600;font-size:14px}
-  .btn.gold{background:linear-gradient(90deg, rgba(212,175,55,0.12), rgba(212,175,55,0.06)); color:var(--accent)}
-  .layout{display:grid;gap:14px}
-  .hero{border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));display:flex;align-items:center;gap:12px}
-  .products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media(min-width:760px){ .products{grid-template-columns:repeat(3,1fr)} }
-  .card{background:var(--card);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px}
-  .thumb{height:150px;border-radius:10px;background:linear-gradient(135deg,#141414,#1b1b1b);display:flex;align-items:center;justify-content:center;color:var(--muted)}
-  .meta{display:flex;justify-content:space-between;align-items:center;gap:8px}
-  .meta h3{margin:0;font-size:15px}
-  .meta p{margin:0;color:var(--muted);font-size:13px}
-  .price{font-weight:700;color:var(--accent)}
-  .product-actions{display:flex;gap:8px;align-items:center}
-  .cart-btn{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,#111,#000);border-radius:999px;padding:12px 14px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 20px rgba(0,0,0,0.6);cursor:pointer;z-index:60}
-  .cart-drawer{position:fixed;right:18px;bottom:80px;width:360px;max-width:94vw;border-radius:14px;padding:16px;background:linear-gradient(180deg,#071018,#08121b);box-shadow:0 12px 40px rgba(0,0,0,0.6);z-index:60;display:none;flex-direction:column;gap:12px}
-  .cart-drawer.show{display:flex}
-  .cart-item{display:flex;gap:10px;align-items:center}
-  .mini-thumb{width:56px;height:56px;border-radius:8px;background:#111;display:flex;align-items:center;justify-content:center}
-  .small{font-size:13px;color:var(--muted)}
-  .totals{display:flex;justify-content:space-between;align-items:center;font-weight:700;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.03)}
-  footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
-  input[type="number"], select{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)}
-  .note{font-size:13px;color:var(--muted)}
-  form.payfast-form{display:inline}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AM Premium Hair Collection</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app" role="application">
-    <header>
-      <div class="logo" aria-hidden="true">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="12" fill="#0b0b0c"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="36" fill="#d4af37" font-family="serif">AM</text></svg>
-      </div>
-      <div class="brand">
-        <h1>AM Collection</h1>
-        <p>Luxury Hairpieces — Weaves, Wigs & Closures</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <button class="btn gold" id="viewCatalogue">Catalogue</button>
-        <button class="btn" id="contactBtn">Message</button>
-      </div>
-    </header>
+  <header>
+    <img src="images/logo.png" alt="AM Premium Hair Collection Logo" class="logo">
+    <h1>AM Premium Hair Collection</h1>
+    <p class="tagline">Luxury You Can Feel — 100% Human Hair</p>
+  </header>
 
-    <main class="layout">
-      <section class="hero" aria-labelledby="heroTitle">
-        <div class="text">
-          <h2 id="heroTitle">Shop Premium Weaves & Wigs</h2>
-          <p>Fast delivery • Secure payments • WhatsApp support</p>
+  <main>
+    <!-- Product Categories -->
+    <section id="shop">
+      <h2>Our Premium Collection</h2>
+
+      <div id="categories">
+        <!-- Category Template -->
+        <div class="category">
+          <h3>Full Frontal Chocolate Color</h3>
+          <div class="product-images">
+            <img src="images/placeholder1.jpg" alt="Weave Image">
+            <img src="images/placeholder2.jpg" alt="Weave Image">
+            <img src="images/placeholder3.jpg" alt="Weave Image">
+          </div>
+          <table class="price-table">
+            <tr><th>Length</th><th>Price (R)</th></tr>
+            <tr><td>8 inch</td><td>550</td></tr>
+            <tr><td>8 inch DD</td><td>650</td></tr>
+            <tr><td>10 inch</td><td>750</td></tr>
+            <tr><td>10 inch DD</td><td>850</td></tr>
+            <tr><td>12 inch</td><td>850</td></tr>
+            <tr><td>14 inch</td><td>1190</td></tr>
+            <tr><td>16 inch</td><td>1390</td></tr>
+            <tr><td>18 inch</td><td>1590</td></tr>
+            <tr><td>20 inch</td><td>1790</td></tr>
+            <tr><td>22 inch</td><td>1890</td></tr>
+            <tr><td>24 inch</td><td>2290</td></tr>
+            <tr><td>26 inch</td><td>2590</td></tr>
+            <tr><td>28 inch</td><td>2790</td></tr>
+            <tr><td>30 inch</td><td>2990</td></tr>
+          </table>
+          <button class="add-to-cart" data-name="Full Frontal Chocolate Color">Add to Cart</button>
         </div>
-        <div style="margin-left:auto;display:flex;gap:8px">
-          <button class="btn" id="shopNow">Shop Now</button>
-          <button class="btn gold" id="buyNowDemo">Buy Now</button>
+
+        <!-- Repeat category sections for all 5 types -->
+        <div class="category">
+          <h3>Human Hair Black Straight Weave</h3>
+          <div class="product-images">
+            <img src="images/placeholder1.jpg" alt="Weave Image">
+            <img src="images/placeholder2.jpg" alt="Weave Image">
+            <img src="images/placeholder3.jpg" alt="Weave Image">
+          </div>
+          <table class="price-table">
+            <tr><th>Length</th><th>Price (R)</th></tr>
+            <tr><td>8 inch</td><td>550</td></tr>
+            <tr><td>8 inch DD</td><td>650</td></tr>
+            <tr><td>10 inch</td><td>750</td></tr>
+            <tr><td>10 inch DD</td><td>850</td></tr>
+            <tr><td>12 inch</td><td>850</td></tr>
+            <tr><td>14 inch</td><td>1190</td></tr>
+            <tr><td>16 inch</td><td>1390</td></tr>
+            <tr><td>18 inch</td><td>1590</td></tr>
+            <tr><td>20 inch</td><td>1790</td></tr>
+            <tr><td>22 inch</td><td>1890</td></tr>
+            <tr><td>24 inch</td><td>2290</td></tr>
+            <tr><td>26 inch</td><td>2590</td></tr>
+            <tr><td>28 inch</td><td>2790</td></tr>
+            <tr><td>30 inch</td><td>2990</td></tr>
+          </table>
+          <button class="add-to-cart" data-name="Human Hair Black Straight Weave">Add to Cart</button>
         </div>
-      </section>
 
-      <section>
-        <h3 style="margin:6px 0 10px">Featured Products</h3>
-        <div class="products" id="productsGrid"></div>
-      </section>
-
-      <footer>
-        Demo store for AM Collection — Replace images and PayFast credentials before going live.
-      </footer>
-    </main>
-
-    <button class="cart-btn" id="openCart" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
-
-    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <strong>Your Order</strong>
-        <button class="btn" id="closeCart">Close</button>
-      </div>
-
-      <div id="cartItems" style="display:flex;flex-direction:column;gap:10px;max-height:300px;overflow:auto"></div>
-
-      <div class="totals">
-        <div>
-          <div class="small">Subtotal</div>
-          <div id="subtotal">R 0.00</div>
+        <!-- Add 3 more categories in the same structure -->
+        <div class="category">
+          <h3>Full Frontal Human Hair Weave</h3>
+          <div class="product-images">
+            <img src="images/placeholder1.jpg" alt="Weave Image">
+            <img src="images/placeholder2.jpg" alt="Weave Image">
+            <img src="images/placeholder3.jpg" alt="Weave Image">
+          </div>
+          <table class="price-table">
+            <tr><th>Length</th><th>Price (R)</th></tr>
+            <tr><td colspan="2">Same as above</td></tr>
+          </table>
+          <button class="add-to-cart" data-name="Full Frontal Human Hair Weave">Add to Cart</button>
         </div>
-        <div style="text-align:right">
-          <div class="small">Delivery</div>
-          <div id="deliveryFee">R 0.00</div>
+
+        <div class="category">
+          <h3>Curls Weave Human Hair Brazilian Frontal</h3>
+          <div class="product-images">
+            <img src="images/placeholder1.jpg" alt="Weave Image">
+            <img src="images/placeholder2.jpg" alt="Weave Image">
+            <img src="images/placeholder3.jpg" alt="Weave Image">
+          </div>
+          <table class="price-table">
+            <tr><th>Length</th><th>Price (R)</th></tr>
+            <tr><td colspan="2">Same as above</td></tr>
+          </table>
+          <button class="add-to-cart" data-name="Curls Weave Human Hair Brazilian Frontal">Add to Cart</button>
         </div>
-      </div>
 
-      <div class="totals" style="border-top:none">
-        <div class="small">Total</div>
-        <div id="total">R 0.00</div>
-      </div>
-
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn gold" id="whatsappCheckout">Order via WhatsApp</button>
-
-        <!-- PayFast demo form (posts to sandbox) -->
-        <!-- IMPORTANT: Replace merchant_id and return URLs with your own, and generate signature server-side before going live. -->
-        <form id="payfastForm" class="payfast-form" method="POST" action="https://sandbox.payfast.co.za/eng/process" target="_blank">
-          <!-- Fields will be populated by JS before submit -->
-          <input type="hidden" name="merchant_id" value="">
-          <input type="hidden" name="merchant_key" value="">
-          <input type="hidden" name="amount" value="">
-          <input type="hidden" name="item_name" value="">
-          <input type="hidden" name="return_url" value="">
-          <input type="hidden" name="cancel_url" value="">
-          <input type="hidden" name="notify_url" value="">
-          <input type="hidden" name="email_confirmation" value="1">
-          <input type="hidden" name="signature" value="">
-          <button type="button" class="btn" id="payfastBtn">Pay with PayFast (Demo)</button>
-        </form>
-      </div>
-
-      <div class="note">Delivery: R120 flat. Free delivery on orders over R1500.</div>
-    </aside>
-  </div>
-
-<script>
-/* =========================
-   Configuration (edit these)
-   ========================= */
-const BUSINESS_PHONE_INTERNATIONAL = '27834939704'; // 083 493 9704 -> 27 83 493 9704
-const DELIVERY_FEE = 120;
-const FREE_DELIVERY_THRESHOLD = 1500;
-
-/* PayFast placeholders (DO NOT use these live). Replace from your PayFast sandbox account.
-   To accept real payments you must generate the 'signature' server-side using your passphrase. */
-const PAYFAST_CONFIG = {
-  url: 'https://sandbox.payfast.co.za/eng/process',
-  merchant_id: '10000100', // demo placeholder
-  merchant_key: '46f0cd694581a', // demo placeholder
-  return_url: 'https://example.com/return', // replace
-  cancel_url: 'https://example.com/cancel', // replace
-  notify_url: 'https://example.com/notify'  // replace (your server endpoint to receive IPN)
-};
-
-/* -------------------------
-   Demo product data (4 items)
-   ------------------------- */
-const PRODUCTS = [
-  { id:'p1', name:'Water Wave Curls', base:700, max:2130, variants:['8in','10in','12in','14in','16in','18in','20in','22in'] },
-  { id:'p2', name:'Any Colour Straight Weave', base:700, max:1600, variants:['8in','10in','12in','14in','16in','18in','20in','22in'] },
-  { id:'p3', name:'Straight Black Weave', base:650, max:1530, variants:['8in','10in','12in','14in','16in','18in','20in','22in'] },
-  { id:'p4', name:'Jerry Curls', base:730, max:1150, variants:['8in','10in','12in','14in'] }
-];
-
-/* -------------------------
-   Simple in-memory cart
-   ------------------------- */
-let cart = {}; // key -> { productId, variant, qty, price, name }
-
-/* -------------------------
-   Utilities
-   ------------------------- */
-function formatR(n){ return 'R ' + Number(n).toFixed(2); }
-function keyFor(productId, variant){ return `${productId}___${variant}`; }
-
-/* -------------------------
-   Render products (with inline SVG placeholders)
-   ------------------------- */
-const productsGrid = document.getElementById('productsGrid');
-
-function makeSVGPlaceholder(text){
-  // returns a small svg string encoded as data URL
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'>
-    <defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='#1b1b1b'/><stop offset='1' stop-color='#111'/></linearGradient></defs>
-    <rect width='100%' height='100%' fill='url(#g)'/>
-    <text x='50%' y='48%' font-family='Verdana' font-size='26' fill='#cfd8dc' text-anchor='middle'>${text}</text>
-    <text x='50%' y='68%' font-family='Verdana' font-size='18' fill='#90a4ae' text-anchor='middle'>AM Collection</text>
-  </svg>`;
-  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-}
-
-function createProductCard(p){
-  const card = document.createElement('div'); card.className='card';
-  const thumb = document.createElement('div'); thumb.className='thumb';
-  const img = document.createElement('img');
-  img.src = makeSVGPlaceholder(p.name); img.alt = p.name; img.style.width='100%'; img.style.height='100%'; img.style.objectFit='cover'; img.style.borderRadius='8px';
-  thumb.appendChild(img);
-  card.appendChild(thumb);
-
-  const meta = document.createElement('div'); meta.className='meta';
-  meta.innerHTML = `<h3>${p.name}</h3><p class="price">${formatR(p.base)}</p>`;
-  card.appendChild(meta);
-
-  const actions = document.createElement('div'); actions.className='product-actions';
-  const sel = document.createElement('select'); p.variants.forEach(v => sel.appendChild(new Option(v,v)));
-  const qty = document.createElement('input'); qty.type='number'; qty.value=1; qty.min=1; qty.style.width='72px';
-  const addBtn = document.createElement('button'); addBtn.className='btn'; addBtn.textContent='Add to Cart';
-  addBtn.onclick = () => addToCart(p.id, sel.value, Number(qty.value) || 1);
-  actions.appendChild(sel); actions.appendChild(qty); actions.appendChild(addBtn);
-  card.appendChild(actions);
-  return card;
-}
-
-PRODUCTS.forEach(p => productsGrid.appendChild(createProductCard(p)));
-
-/* -------------------------
-   Cart logic and rendering
-   ------------------------- */
-const cartDrawer = document.getElementById('cartDrawer');
-const cartItemsEl = document.getElementById('cartItems');
-const cartCount = document.getElementById('cartCount');
-const subtotalEl = document.getElementById('subtotal');
-const deliveryFeeEl = document.getElementById('deliveryFee');
-const totalEl = document.getElementById('total');
-
-function addToCart(productId, variant, qty){
-  const prod = PRODUCTS.find(x => x.id===productId);
-  if(!prod) return;
-  const idx = prod.variants.indexOf(variant);
-  const t = idx / Math.max(1, prod.variants.length - 1);
-  const price = Math.round(prod.base + t*(prod.max - prod.base));
-  const k = keyFor(productId, variant);
-  if(cart[k]) cart[k].qty += qty; else cart[k] = { productId, variant, qty, price, name: prod.name };
-  updateCartUI(); showCart();
-}
-
-function calcTotals(){
-  let subtotal=0; Object.values(cart).forEach(it => subtotal += it.price*it.qty);
-  const delivery = subtotal >= FREE_DELIVERY_THRESHOLD && subtotal>0 ? 0 : (subtotal>0 ? DELIVERY_FEE : 0);
-  return { subtotal, delivery, total: subtotal+delivery };
-}
-
-function updateCartUI(){
-  cartItemsEl.innerHTML = '';
-  let count = 0;
-  Object.entries(cart).forEach(([k,item])=>{
-    count += item.qty;
-    const div = document.createElement('div'); div.className='cart-item';
-    div.innerHTML = `
-      <div class="mini-thumb">${item.variant}</div>
-      <div style="flex:1">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div><div style="font-weight:700">${item.name}</div><div class="small">${item.variant}</div></div>
-          <div style="text-align:right"><div class="small">Unit</div><div>${formatR(item.price)}</div></div>
-        </div>
-        <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
-          <input type="number" min="1" value="${item.qty}" style="width:68px;padding:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04)" />
-          <button class="btn" data-key="${k}" style="padding:6px 10px">Remove</button>
+        <div class="category">
+          <h3>Human Hair Water Weave Curls Full Frontal</h3>
+          <div class="product-images">
+            <img src="images/placeholder1.jpg" alt="Weave Image">
+            <img src="images/placeholder2.jpg" alt="Weave Image">
+            <img src="images/placeholder3.jpg" alt="Weave Image">
+          </div>
+          <table class="price-table">
+            <tr><th>Length</th><th>Price (R)</th></tr>
+            <tr><td colspan="2">Same as above</td></tr>
+          </table>
+          <button class="add-to-cart" data-name="Human Hair Water Weave Curls Full Frontal">Add to Cart</button>
         </div>
       </div>
-    `;
-    const qtyInput = div.querySelector('input[type="number"]');
-    qtyInput.onchange = (e) => { cart[k].qty = Math.max(1, Number(e.target.value) || 1); updateCartUI(); };
-    div.querySelector('button[data-key]').onclick = () => { delete cart[k]; updateCartUI(); };
-    cartItemsEl.appendChild(div);
-  });
-  cartCount.textContent = count;
-  const totals = calcTotals();
-  subtotalEl.textContent = formatR(totals.subtotal);
-  deliveryFeeEl.textContent = totals.delivery === 0 ? 'Free' : formatR(totals.delivery);
-  totalEl.textContent = formatR(totals.total);
-}
+    </section>
 
-/* -------------------------
-   Drawer controls & buttons
-   ------------------------- */
-document.getElementById('openCart').addEventListener('click', ()=>{ cartDrawer.classList.add('show'); cartDrawer.setAttribute('aria-hidden','false'); });
-document.getElementById('closeCart').addEventListener('click', ()=>{ cartDrawer.classList.remove('show'); cartDrawer.setAttribute('aria-hidden','true'); });
-document.getElementById('shopNow').addEventListener('click', ()=> window.scrollTo({top:500,behavior:'smooth'}));
-document.getElementById('contactBtn').addEventListener('click', ()=> openWhatsAppMessage('Hi! I have a question about your hair products.'));
-document.getElementById('viewCatalogue').addEventListener('click', ()=> openWhatsAppMessage('Please send me your catalogue.'));
-document.getElementById('buyNowDemo').addEventListener('click', ()=> openWhatsAppMessage('I want to place an order.'));
+    <!-- Cart Section -->
+    <section id="cart-section">
+      <h2>Your Cart</h2>
+      <ul id="cart"></ul>
+      <p><strong>Total: R<span id="total">0</span></strong></p>
 
-/* -------------------------
-   WhatsApp checkout
-   ------------------------- */
-document.getElementById('whatsappCheckout').addEventListener('click', ()=> {
-  const totals = calcTotals();
-  if(totals.subtotal === 0){ alert('Your cart is empty. Add a product first.'); return; }
-  const lines = [];
-  lines.push('AM Collection - New order');
-  lines.push('------------------------');
-  Object.values(cart).forEach(it => lines.push(`${it.name} (${it.variant}) x ${it.qty} — ${formatR(it.price * it.qty)}`));
-  lines.push('------------------------');
-  lines.push(`Subtotal: ${formatR(totals.subtotal)}`);
-  lines.push(`Delivery: ${totals.delivery === 0 ? 'Free' : formatR(totals.delivery)}`);
-  lines.push(`Total: ${formatR(totals.total)}`);
-  lines.push('');
-  lines.push('Customer name:');
-  lines.push('Delivery address:');
-  lines.push('Phone/WhatsApp:');
-  openWhatsAppMessage(lines.join('\\n'));
-});
+      <label for="delivery">Delivery Method:</label>
+      <select id="delivery">
+        <option value="paxi">PAXI (R60)</option>
+        <option value="courier">Courier Guy (R110)</option>
+      </select>
 
-/* -------------------------
-   PayFast (demo) flow
-   Note: The signature must be created server-side using your passphrase.
-   This demo will POST to PayFast sandbox with placeholder values.
-   ------------------------- */
-const payfastBtn = document.getElementById('payfastBtn');
-const payfastForm = document.getElementById('payfastForm');
-payfastBtn.addEventListener('click', async () => {
-  const totals = calcTotals();
-  if(totals.subtotal === 0){ alert('Your cart is empty. Add a product first.'); return; }
+      <div id="checkout">
+        <h3>Checkout</h3>
+        <p>Delivery Address: 375 Durban Joe Slovo Street</p>
+        <p><strong>Payment:</strong> Bank Transfer</p>
+        <p>Account details will be provided after order confirmation.</p>
+        <button id="whatsapp-order">Order via WhatsApp</button>
+      </div>
+    </section>
+  </main>
 
-  // Build item summary (simple string)
-  const itemNames = Object.values(cart).map(it => `${it.name} (${it.variant}) x${it.qty}`).join(' | ');
-  // IMPORTANT: in real integration you must generate signature on server using passphrase.
-  // Here we populate form fields with demo values and open sandbox (for demo only).
-  payfastForm.action = PAYFAST_CONFIG.url;
-  payfastForm.merchant_id.value = PAYFAST_CONFIG.merchant_id;
-  payfastForm.merchant_key.value = PAYFAST_CONFIG.merchant_key;
-  payfastForm.amount.value = (totals.total).toFixed(2);
-  payfastForm.item_name.value = `AM Collection: ${itemNames}`;
-  payfastForm.return_url.value = PAYFAST_CONFIG.return_url;
-  payfastForm.cancel_url.value = PAYFAST_CONFIG.cancel_url;
-  payfastForm.notify_url.value = PAYFAST_CONFIG.notify_url;
+  <footer>
+    <p>© 2025 AM Premium Hair Collection | All Rights Reserved</p>
+  </footer>
 
-  // Signature placeholder (will be ignored by sandbox if not validated), but real PayFast requires this.
-  payfastForm.signature.value = '';
-
-  // For demo we open PayFast sandbox in a new tab — sandbox will show a fake payment screen if merchant_id matches sandbox test data
-  payfastForm.submit();
-});
-
-/* -------------------------
-   WhatsApp helper (uses the provided business phone)
-   ------------------------- */
-function openWhatsAppMessage(message){
-  const phone = BUSINESS_PHONE_INTERNATIONAL; // e.g. 2783...
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
-}
-
-/* -------------------------
-   Demo preload items to show
-   ------------------------- */
-addToCart('p1','12in',1);
-addToCart('p3','14in',1);
-updateCartUI();
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
