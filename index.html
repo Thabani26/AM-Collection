@@ -1,219 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AM Premium Hair Collection</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AM Collection — Premium Hair Store</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Header / Hero -->
+<div class="app" role="application">
   <header>
-    <img src="images/logo.png" alt="AM Premium Hair Collection Logo" class="logo">
-    <h1>AM Premium Hair Collection</h1>
-    <p class="tagline">Luxury You Can Feel — 100% Human Hair</p>
+    <div class="logo" aria-hidden="true">
+      <img src="images\IMG-logo.jpg" alt="AM Collection Logo" width="100" height="100">
+    </div>
+    <div class="brand">
+      <h1>AM Collection</h1>
+      <p>Luxury Hairpieces for Every Queen — Weaves, Wigs & Closures</p>
+    </div>
   </header>
 
-  <!-- Main -->
-  <main>
-
-    <!-- Products Section -->
-    <section id="shop">
-      <h2>Our Premium Collection</h2>
-      <div id="categories">
-
-        <!-- Category 1 -->
-        <div class="category">
-          <h3>Full Frontal Chocolate Color</h3>
-          <div class="product-images">
-            <img src="images/placeholder1.jpg" alt="Full Frontal Chocolate Color Image 1">
-            <img src="images/placeholder2.jpg" alt="Full Frontal Chocolate Color Image 2">
-            <img src="images/placeholder3.jpg" alt="Full Frontal Chocolate Color Image 3">
-          </div>
-          <label>Select Length:</label>
-          <select class="length-select">
-            <option value="550">8 inch - R550</option>
-            <option value="650">8 inch DD - R650</option>
-            <option value="750">10 inch - R750</option>
-            <option value="850">10 inch DD - R850</option>
-            <option value="850">12 inch - R850</option>
-            <option value="1190">14 inch - R1190</option>
-            <option value="1390">16 inch - R1390</option>
-            <option value="1590">18 inch - R1590</option>
-            <option value="1790">20 inch - R1790</option>
-            <option value="1890">22 inch - R1890</option>
-            <option value="2290">24 inch - R2290</option>
-            <option value="2590">26 inch - R2590</option>
-            <option value="2790">28 inch - R2790</option>
-            <option value="2990">30 inch - R2990</option>
-          </select>
-          <button class="add-to-cart" data-name="Full Frontal Chocolate Color">Add to Cart</button>
-        </div>
-
-        <!-- Category 2 -->
-        <div class="category">
-          <h3>Human Hair Black Straight Weave</h3>
-          <div class="product-images">
-            <img src="images/placeholder1.jpg" alt="Black Straight Weave Image 1">
-            <img src="images/placeholder2.jpg" alt="Black Straight Weave Image 2">
-            <img src="images/placeholder3.jpg" alt="Black Straight Weave Image 3">
-          </div>
-          <label>Select Length:</label>
-          <select class="length-select">
-            <option value="550">8 inch - R550</option>
-            <option value="650">8 inch DD - R650</option>
-            <option value="750">10 inch - R750</option>
-            <option value="850">10 inch DD - R850</option>
-            <option value="850">12 inch - R850</option>
-            <option value="1190">14 inch - R1190</option>
-            <option value="1390">16 inch - R1390</option>
-            <option value="1590">18 inch - R1590</option>
-            <option value="1790">20 inch - R1790</option>
-            <option value="1890">22 inch - R1890</option>
-            <option value="2290">24 inch - R2290</option>
-            <option value="2590">26 inch - R2590</option>
-            <option value="2790">28 inch - R2790</option>
-            <option value="2990">30 inch - R2990</option>
-          </select>
-          <button class="add-to-cart" data-name="Human Hair Black Straight Weave">Add to Cart</button>
-        </div>
-
-        <!-- Category 3 -->
-        <div class="category">
-          <h3>Full Frontal Human Hair Weave</h3>
-          <div class="product-images">
-            <img src="images/placeholder1.jpg" alt="Full Frontal Human Hair Image 1">
-            <img src="images/placeholder2.jpg" alt="Full Frontal Human Hair Image 2">
-            <img src="images/placeholder3.jpg" alt="Full Frontal Human Hair Image 3">
-          </div>
-          <label>Select Length:</label>
-          <select class="length-select">
-            <option value="550">8 inch - R550</option>
-            <option value="650">8 inch DD - R650</option>
-            <option value="750">10 inch - R750</option>
-            <option value="850">10 inch DD - R850</option>
-            <option value="850">12 inch - R850</option>
-            <option value="1190">14 inch - R1190</option>
-            <option value="1390">16 inch - R1390</option>
-            <option value="1590">18 inch - R1590</option>
-            <option value="1790">20 inch - R1790</option>
-            <option value="1890">22 inch - R1890</option>
-            <option value="2290">24 inch - R2290</option>
-            <option value="2590">26 inch - R2590</option>
-            <option value="2790">28 inch - R2790</option>
-            <option value="2990">30 inch - R2990</option>
-          </select>
-          <button class="add-to-cart" data-name="Full Frontal Human Hair Weave">Add to Cart</button>
-        </div>
-
-        <!-- Category 4 -->
-        <div class="category">
-          <h3>Curls Weave Human Hair Brazilian Frontal</h3>
-          <div class="product-images">
-            <img src="images/placeholder1.jpg" alt="Curls Weave Brazilian Image 1">
-            <img src="images/placeholder2.jpg" alt="Curls Weave Brazilian Image 2">
-            <img src="images/placeholder3.jpg" alt="Curls Weave Brazilian Image 3">
-          </div>
-          <label>Select Length:</label>
-          <select class="length-select">
-            <option value="550">8 inch - R550</option>
-            <option value="650">8 inch DD - R650</option>
-            <option value="750">10 inch - R750</option>
-            <option value="850">10 inch DD - R850</option>
-            <option value="850">12 inch - R850</option>
-            <option value="1190">14 inch - R1190</option>
-            <option value="1390">16 inch - R1390</option>
-            <option value="1590">18 inch - R1590</option>
-            <option value="1790">20 inch - R1790</option>
-            <option value="1890">22 inch - R1890</option>
-            <option value="2290">24 inch - R2290</option>
-            <option value="2590">26 inch - R2590</option>
-            <option value="2790">28 inch - R2790</option>
-            <option value="2990">30 inch - R2990</option>
-          </select>
-          <button class="add-to-cart" data-name="Curls Weave Human Hair Brazilian Frontal">Add to Cart</button>
-        </div>
-
-        <!-- Category 5 -->
-        <div class="category">
-          <h3>Human Hair Water Weave Curls Full Frontal</h3>
-          <div class="product-images">
-            <img src="images/placeholder1.jpg" alt="Water Weave Curls Image 1">
-            <img src="images/placeholder2.jpg" alt="Water Weave Curls Image 2">
-            <img src="images/placeholder3.jpg" alt="Water Weave Curls Image 3">
-          </div>
-          <label>Select Length:</label>
-          <select class="length-select">
-            <option value="550">8 inch - R550</option>
-            <option value="650">8 inch DD - R650</option>
-            <option value="750">10 inch - R750</option>
-            <option value="850">10 inch DD - R850</option>
-            <option value="850">12 inch - R850</option>
-            <option value="1190">14 inch - R1190</option>
-            <option value="1390">16 inch - R1390</option>
-            <option value="1590">18 inch - R1590</option>
-            <option value="1790">20 inch - R1790</option>
-            <option value="1890">22 inch - R1890</option>
-            <option value="2290">24 inch - R2290</option>
-            <option value="2590">26 inch - R2590</option>
-            <option value="2790">28 inch - R2790</option>
-            <option value="2990">30 inch - R2990</option>
-          </select>
-          <button class="add-to-cart" data-name="Human Hair Water Weave Curls Full Frontal">Add to Cart</button>
-        </div>
-
+  <main class="layout">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="text">
+        <h2 id="heroTitle">Shop Premium Weaves & Wigs</h2>
+        <p>Fast delivery • Secure payments • WhatsApp support</p>
+      </div>
+      <div class="actions">
+        <button class="btn" id="shopNow">Shop Now</button>
       </div>
     </section>
 
-    <!-- Cart Section -->
-    <section id="cart-section">
-      <h2>Your Cart</h2>
-      <ul id="cart"></ul>
-      <p><strong>Total: R<span id="total">0</span></strong></p>
-
-      <label for="delivery">Delivery Method:</label>
-      <select id="delivery">
-        <option value="paxi">PAXI (R60)</option>
-        <option value="courier">Courier Guy (R110)</option>
-      </select>
-
-      <div id="checkout">
-        <h3>Checkout</h3>
-        <p>Delivery Address: 375 Durban Joe Slovo Street</p>
-        <p><strong>Payment:</strong> Bank Transfer</p>
-        <p>Account details will be provided after order confirmation.</p>
-        <button id="whatsapp-order">Order via WhatsApp</button>
-      </div>
+    <section class="about">
+      <h3>About AM Collection</h3>
+      <p>AM Collection brings you 100% human hair, luxury-quality weaves, wigs, and closures. Perfect for every style, every queen.</p>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form id="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+    <section>
+      <h3>Our Premium Collection</h3>
+      <div id="productsGrid" class="products"></div>
     </section>
 
+    <section id="contact" style="margin-top:24px;padding:16px;background:#f8f8f8;border-radius:12px;color:#000;text-align:center;">
+  <h3>Connect with Us</h3>
+  <p>Follow us on social media or reach out directly:</p>
+  <div style="display:flex;justify-content:center;gap:16px;margin:12px 0;">
+    <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
+    <a href="https://facebook.com/yourprofile" target="_blank">Facebook</a>
+    <a href="https://tiktok.com/@yourprofile" target="_blank">TikTok</a>
+  </div>
+  <p><strong>Location:</strong> 375 Durban Joe Slovo Street, South Africa</p>
+  <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/27737181506">+27 73 718 1506</a></p>
+  <p><strong>Email:</strong> <a href="mailto:info@amcollection.co.za">info@amcollection.co.za</a></p>
+</section>
+
+    <footer>© 2025 AM Collection — All Rights Reserved</footer>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 AM Premium Hair Collection | All Rights Reserved</p>
-  </footer>
+  <button class="cart-btn" id="openCart" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
 
-  <!-- Image Modal -->
-  <div id="image-modal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-img">
-    <div id="caption"></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+      <strong>Your Cart</strong>
+      <button class="btn" id="closeCart">Close</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
 
-  <script src="script.js"></script>
+    <div class="totals">
+      <div>
+        <div class="small">Subtotal</div>
+        <div id="subtotal">R 0.00</div>
+      </div>
+      <div style="text-align:right">
+        <div class="small">Delivery</div>
+        <div id="deliveryFee">R 0.00</div>
+      </div>
+    </div>
+
+    <div class="totals" style="border-top:none">
+      <div class="small">Total</div>
+      <div id="total">R 0.00</div>
+    </div>
+
+    <div class="note">
+      Delivery: PAXI R60, Courier R110. Free delivery on orders over R2500.
+      <br><br><strong>Bank Transfer Details:</strong>
+      <br>Bank: Capitec Bank
+      <br>Account Name: Saving
+      <br>Account Holder: A.Mkongi
+      <br>Account Number: 219530525
+    </div>
+
+    <label for="deliveryOption">Delivery Method:</label>
+    <select id="deliveryOption">
+      <option value="paxi">PAXI - R60</option>
+      <option value="courier">Courier - R110</option>
+    </select>
+
+    <div class="checkout-actions">
+      <button class="btn gold" id="whatsappCheckout">Order via WhatsApp</button>
+    </div>
+  </aside>
+</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>
