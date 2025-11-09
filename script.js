@@ -270,6 +270,7 @@ document.getElementById('whatsappCheckout').addEventListener('click',()=>{
 });
 
 function openWhatsAppMessage(msg){
-  const businessPhone='27737181506';
+  const businessPhone='27834939704';
   window.open(`https://wa.me/${businessPhone}?text=${encodeURIComponent(msg)}`,'_blank');
 }
+
