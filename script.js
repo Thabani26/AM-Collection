@@ -259,7 +259,7 @@ document.getElementById('whatsappCheckout').addEventListener('click',()=>{
     'Bank: Capitec Bank',
     'Account Name: Saving',
     'Account Holder: A.Mkongi',
-    'Account Number: 219530525',
+    'Account Number: 2109530525',
     '',
     'Customer name:',
     'Delivery address:',
@@ -273,4 +273,5 @@ function openWhatsAppMessage(msg){
   const businessPhone='27834939704';
   window.open(`https://wa.me/${businessPhone}?text=${encodeURIComponent(msg)}`,'_blank');
 }
+
 
