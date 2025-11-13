@@ -25,7 +25,7 @@ const PRODUCTS = [
     id: 'p3', 
     name: 'Full Frontal Human Hair Weave Piano Color',
     imgs: [
-      'images/IMG-human-hair-piano-color.jpg', 
+      'images/images/IMG-20251113-WA0038.jpg', 
       'images/IMG-frontal-human-hair weave-piano-color.jpg',
       'images/IMG-human-hair-piano-color.jpg'
     ],
@@ -273,5 +273,6 @@ function openWhatsAppMessage(msg){
   const businessPhone='27834939704';
   window.open(`https://wa.me/${businessPhone}?text=${encodeURIComponent(msg)}`,'_blank');
 }
+
 
 
