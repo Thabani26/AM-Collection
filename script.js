@@ -274,6 +274,57 @@ function openWhatsAppMessage(msg){
   window.open(`https://wa.me/${businessPhone}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
+// ====== PAYFAST INTEGRATION ======
 
+const clientEmail = "amahllemkhongii@gmail.com";
 
+// Leave passphrase empty
+const pfPassphrase = "";
 
+// Generate signature
+function generatePFSignature(data, passphrase = "") {
+    const keys = Object.keys(data).sort();
+    let pfString = keys
+        .map(key => `${key}=${encodeURIComponent(data[key]).replace(/%20/g, '+')}`)
+        .join('&');
+
+    if (passphrase) {
+        pfString += `&passphrase=${encodeURIComponent(passphrase).replace(/%20/g, '+')}`;
+    }
+
+    return CryptoJS.MD5(pfString).toString();
+}
+
+// Prepare PayFast payment
+function preparePayfastPayment(totalAmount) {
+    const data = {
+        merchant_id: "32427843",
+        merchant_key: "zeglxnfk71xsp",
+        return_url: "https://www.amcollection.co.za/success.html",
+        cancel_url: "https://www.amcollection.co.za/cancel.html",
+        notify_url: "https://www.amcollection.co.za/payfast-notify.php",
+        amount: totalAmount.toFixed(2),
+        item_name: "AM Collection Order",
+        email_address: clientEmail
+    };
+
+    const signature = generatePFSignature(data, pfPassphrase);
+
+    // Fill hidden form fields
+    document.getElementById("pfAmount").value = data.amount;
+    document.getElementById("pfEmail").value = data.email_address;
+    document.getElementById("pfSignature").value = signature;
+}
+
+// Handle PayFast form submission
+document.getElementById("payfastForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const totals = calcTotals();
+    if (totals.total === 0) { 
+        alert("Cart is empty"); 
+        return; 
+    }
+
+    preparePayfastPayment(totals.total);
+    this.submit();
+});

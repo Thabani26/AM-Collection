@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AM Collection — Premium Hair Store</title>
 <link rel="stylesheet" href="style.css" />
+<!-- CryptoJS for PayFast Signature -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
+
 <body>
 <div class="app" role="application">
   <header>
@@ -40,7 +43,7 @@
   <h3>Connect with Us</h3>
   <p>Follow us on social media or reach out directly:</p>
   <div style="display:flex;justify-content:center;gap:16px;margin:12px 0;">
-    <a href="https://www.facebook.com/share/17X17jcALY/?mibextid=wwXIfr"_blank">Instagram</a>
+    <a href="https://www.facebook.com/share/17X17jcALY/?mibextid=wwXIfr" target="_blank">Instagram</a>
     <a href="https://www.instagram.com/khanya._lover?igsh=MjJ0MTVia3pmOW5i&utm_source=qr" target="_blank">Facebook</a>
     <a href="https://www.tiktok.com/@khanya_.lover?_r=1&_t=ZS-91GBoH1KV1A" target="_blank">TikTok</a>
   </div>
@@ -90,8 +93,26 @@
       <option value="paxi">PAXI - R60</option>
       <option value="courier">Courier Guy - R110</option>
     </select>
+    
+<!-- Your PayFast form -->
+<form id="payfastForm" method="POST" action="https://www.payfast.co.za/eng/process">
+    <input type="hidden" name="merchant_id" value="32427843">
+    <input type="hidden" name="merchant_key" value="zeglxnfk71xsp">
 
-    <div class="checkout-actions">
+    <input type="hidden" name="return_url" value="https://www.amcollection.co.za/success.html">
+    <input type="hidden" name="cancel_url" value="https://www.amcollection.co.za/cancel.html">
+    <input type="hidden" name="notify_url" value="https://www.amcollection.co.za/payfast-notify.php">
+
+    <input type="hidden" name="amount" id="pfAmount">
+    <input type="hidden" name="item_name" id="pfItemName" value="AM Collection Order">
+    <input type="hidden" name="email_address" id="pfEmail">
+    <input type="hidden" name="signature" id="pfSignature">
+
+    <button type="submit" class="btn gold">Pay with PayFast</button>
+</form>
+
+
+  <div class="checkout-actions">
       <button class="btn gold" id="whatsappCheckout">Order via WhatsApp</button>
     </div>
   </aside>
@@ -100,7 +121,5 @@
 <script src="script.js" defer></script>
 </body>
 </html>
-
-
 
 
